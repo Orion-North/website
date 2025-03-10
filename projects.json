@@ -1,17 +1,29 @@
 {
-    "projects": [
-      {
-        "title": "Aegis X3",
-        "description": "STEM Capstone Project",
-        "image": "assets/project1.png",
-        "link": "https://github.com/yourusername/project-one"
+  "projects": [
+    {
+      "id": 1,
+      "title": "Aegis",
+      "image": "assets/aegis.png",
+      "tech": ["Python", "YOLO", "OpenCV"],
+      "date": "Estimated: June 2025",
+      "links": {
+        "repo": "https://github.com/Orion-North/Aegis"
       },
-      {
-        "title": "Project Two",
-        "description": "A well-executed project demonstrating professional expertise.",
-        "image": "assets/project2.png",
-        "link": "https://github.com/yourusername/project-two"
-      }
-    ]
-  }
-  
+      "description": "Aegis is an ambitious computer vision turret controller that leverages YOLO for real-time object detection and face recognition. Still in development, it promises to set a new standard in automated security solutions.",
+      "main": true
+    },
+    {
+      "id": 2,
+      "title": "Algoduel",
+      "image": "assets/algoduel.png",
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "date": "2024-11-25",
+      "links": {
+        "repo": "https://github.com/Orion-North/Algoduel",
+        "demo": "https://orion-north.github.io/Algoduel/"
+      },
+      "description": "Algoduel is a strategic game where you craft an algorithm to control your fighter as they battle against AI opponents. It merges coding challenges with engaging gameplay for a unique competitive experience.",
+      "main": true
+    }
+  ]
+}
