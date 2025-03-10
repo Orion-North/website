@@ -32,7 +32,8 @@
       "tech": ["HTML", "CSS", "JavaScript"],
       "date": "2023-05-10",
       "links": {
-        "repo": "https://github.com/Orion-North/Capsule"
+        "repo": "https://github.com/Orion-North/Capsule",
+        "demo": "https://orion-north.github.io/Capsule/"
       },
       "description": "Capsule is a minimalist personal blog template designed for developers. It offers a clean interface, easy customization, and supports markdown for content creation.",
       "main": false
@@ -68,7 +69,8 @@
       "tech": ["JavaScript", "Node.js", "Express"],
       "date": "2022-07-30",
       "links": {
-        "repo": "https://github.com/Orion-North/Rollbone"
+        "repo": "https://github.com/Orion-North/Rollbone",
+        "demo": "https://orion-north.github.io/Rollbone/"
       },
       "description": "Rollbone is an online platform for tabletop RPG enthusiasts. It provides tools for character creation, campaign management, and virtual dice rolling, all within a collaborative environment.",
       "main": false
