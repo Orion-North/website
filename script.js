@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const slide = document.createElement('div');
           slide.classList.add('slide');
           slide.innerHTML = `
-            ${project.image ? `<div class="image-container"><img src="${project.image}" alt="${project.title}"></div>` : `<div class="image-container placeholder">No Image</div>`}
+            ${project.image ? `<div class="image-container"><img src="${project.image}" alt="${project.title}"></div>` : `<div class="placeholder">No Image</div>`}
             <h3>${project.title}</h3>
             <p>${project.tech.join(', ')} | ${project.date}</p>
             <div class="links">
@@ -25,22 +25,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         const totalSlides = mainProjects.length;
+        
+        function updateCarousel() {
+          slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        
+        // Auto-slide timer set to 8 seconds
+        let autoSlideTimer = setInterval(() => {
+          currentSlide = (currentSlide + 1) % totalSlides;
+          updateCarousel();
+        }, 8000);
+        
+        // Reset timer on manual click
+        function resetTimer() {
+          clearInterval(autoSlideTimer);
+          autoSlideTimer = setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+          }, 8000);
+        }
+        
         document.getElementById('prev').addEventListener('click', () => {
           currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
           updateCarousel();
+          resetTimer();
         });
         document.getElementById('next').addEventListener('click', () => {
           currentSlide = (currentSlide + 1) % totalSlides;
           updateCarousel();
+          resetTimer();
         });
-        function updateCarousel() {
-          slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-        // Auto-slide every 5 seconds
-        setInterval(() => {
-          currentSlide = (currentSlide + 1) % totalSlides;
-          updateCarousel();
-        }, 5000);
       }
 
       /* --- Projects Tiles & Filters for All Projects (projects.html) --- */
@@ -77,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const tile = document.createElement('div');
             tile.classList.add('project-tile');
             tile.innerHTML = `
-              ${project.image ? `<div class="image-container"><img src="${project.image}" alt="${project.title}"></div>` : `<div class="image-container placeholder">No Image</div>`}
+              ${project.image ? `<div class="tile-image-container"><img src="${project.image}" alt="${project.title}"></div>` : `<div class="placeholder">No Image</div>`}
               <h3>${project.title}</h3>
               <p>Tech: ${project.tech ? project.tech.join(', ') : 'N/A'}</p>
               <p>Date: ${project.date}</p>
