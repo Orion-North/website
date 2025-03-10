@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const slide = document.createElement('div');
           slide.classList.add('slide');
           slide.innerHTML = `
-            ${project.image ? `<img src="${project.image}" alt="${project.title}">` : `<div class="placeholder">No Image</div>`}
+            ${project.image ? `<div class="image-container"><img src="${project.image}" alt="${project.title}"></div>` : `<div class="image-container placeholder">No Image</div>`}
             <h3>${project.title}</h3>
             <p>${project.tech.join(', ')} | ${project.date}</p>
             <div class="links">
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const tile = document.createElement('div');
             tile.classList.add('project-tile');
             tile.innerHTML = `
-              ${project.image ? `<img src="${project.image}" alt="${project.title}">` : `<div class="placeholder">No Image</div>`}
+              ${project.image ? `<div class="image-container"><img src="${project.image}" alt="${project.title}"></div>` : `<div class="image-container placeholder">No Image</div>`}
               <h3>${project.title}</h3>
               <p>Tech: ${project.tech ? project.tech.join(', ') : 'N/A'}</p>
               <p>Date: ${project.date}</p>
