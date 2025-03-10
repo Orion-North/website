@@ -1,0 +1,17 @@
+{
+    "projects": [
+      {
+        "title": "Aegis X3",
+        "description": "STEM Capstone Project",
+        "image": "assets/project1.png",
+        "link": "https://github.com/yourusername/project-one"
+      },
+      {
+        "title": "Project Two",
+        "description": "A well-executed project demonstrating professional expertise.",
+        "image": "assets/project2.png",
+        "link": "https://github.com/yourusername/project-two"
+      }
+    ]
+  }
+  
