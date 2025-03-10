@@ -2,19 +2,109 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('projects.json')
       .then(response => response.json())
       .then(data => {
-        const container = document.getElementById('projects-container');
-        data.projects.forEach(project => {
-          const projectElem = document.createElement('div');
-          projectElem.classList.add('project');
+        const projects = data.projects;
   
-          projectElem.innerHTML = `
-            <img src="${project.image}" alt="${project.title}">
-            <h3>${project.title}</h3>
-            <p>${project.description}</p>
-            <a href="${project.link}" target="_blank">View Project</a>
-          `;
-          container.appendChild(projectElem);
-        });
+        /* ----- Carousel for Main Projects (index.html) ----- */
+        const slidesContainer = document.getElementById('slides-container');
+        if (slidesContainer) {
+          const mainProjects = projects.filter(project => project.main);
+          let currentSlide = 0;
+          mainProjects.forEach(project => {
+            const slide = document.createElement('div');
+            slide.classList.add('slide');
+            slide.innerHTML = `
+              ${project.image ? `<img src="${project.image}" alt="${project.title}">` : ''}
+              <h3>${project.title}</h3>
+              <p>${project.tech.join(', ')} | ${project.date}</p>
+              <div class="links">
+                ${project.links.repo ? `<a href="${project.links.repo}" target="_blank">Repo</a>` : ''}
+                ${project.links.demo ? `<a href="${project.links.demo}" target="_blank">Demo</a>` : ''}
+              </div>
+            `;
+            slidesContainer.appendChild(slide);
+          });
+          
+          const totalSlides = mainProjects.length;
+          document.getElementById('prev').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+          });
+          document.getElementById('next').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+          });
+          function updateCarousel() {
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+          }
+          // Optional auto-slide every 5 seconds
+          setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+          }, 5000);
+        }
+  
+        /* ----- Projects Tiles & Filters (projects.html) ----- */
+        const projectsTilesContainer = document.getElementById('projects-tiles');
+        if (projectsTilesContainer) {
+          const filterButtonsContainer = document.getElementById('filter-buttons');
+          // Generate a set of unique tech tags
+          let techSet = new Set();
+          projects.forEach(project => {
+            if (project.tech && Array.isArray(project.tech)) {
+              project.tech.forEach(tech => techSet.add(tech));
+            }
+          });
+          // Create "All" filter button
+          const allBtn = document.createElement('button');
+          allBtn.classList.add('filter-btn', 'active');
+          allBtn.textContent = 'All';
+          allBtn.dataset.filter = 'all';
+          filterButtonsContainer.appendChild(allBtn);
+          // Create buttons for each tech tag
+          techSet.forEach(tech => {
+            const btn = document.createElement('button');
+            btn.classList.add('filter-btn');
+            btn.textContent = tech;
+            btn.dataset.filter = tech;
+            filterButtonsContainer.appendChild(btn);
+          });
+          
+          // Function to render projects based on filter
+          function renderProjects(filter) {
+            projectsTilesContainer.innerHTML = '';
+            const filteredProjects = filter === 'all'
+              ? projects
+              : projects.filter(project => project.tech && project.tech.includes(filter));
+            filteredProjects.forEach(project => {
+              const tile = document.createElement('div');
+              tile.classList.add('project-tile');
+              tile.innerHTML = `
+                ${project.image ? `<img src="${project.image}" alt="${project.title}">` : ''}
+                <h3>${project.title}</h3>
+                <p>Tech: ${project.tech ? project.tech.join(', ') : 'N/A'}</p>
+                <p>Date: ${project.date}</p>
+                <div class="links">
+                  ${project.links && project.links.repo ? `<a href="${project.links.repo}" target="_blank">Repo</a>` : ''}
+                  ${project.links && project.links.demo ? `<a href="${project.links.demo}" target="_blank">Demo</a>` : ''}
+                </div>
+              `;
+              projectsTilesContainer.appendChild(tile);
+            });
+          }
+          
+          // Initial render with "all" filter
+          renderProjects('all');
+          
+          // Setup filter button click events
+          document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+              document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+              this.classList.add('active');
+              const filter = this.dataset.filter;
+              renderProjects(filter);
+            });
+          });
+        }
       })
       .catch(err => {
         console.error('Error loading projects:', err);
