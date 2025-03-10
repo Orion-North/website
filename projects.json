@@ -24,6 +24,54 @@
       },
       "description": "Algoduel is a strategic game where you craft an algorithm to control your fighter as they battle against AI opponents. It merges coding challenges with engaging gameplay for a unique competitive experience.",
       "main": true
+    },
+    {
+      "id": 3,
+      "title": "Capsule",
+      "image": "assets/capsule.png",
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "date": "2023-05-10",
+      "links": {
+        "repo": "https://github.com/Orion-North/Capsule"
+      },
+      "description": "Capsule is a minimalist personal blog template designed for developers. It offers a clean interface, easy customization, and supports markdown for content creation.",
+      "main": false
+    },
+    {
+      "id": 4,
+      "title": "Bloondubs",
+      "image": "assets/bloondubs.png",
+      "tech": ["JavaScript", "React", "Redux"],
+      "date": "2023-02-20",
+      "links": {
+        "repo": "https://github.com/Orion-North/Bloondubs"
+      },
+      "description": "Bloondubs is a dynamic web application that allows users to create and share short video clips with added sound effects and filters. It's built with React and leverages Redux for state management.",
+      "main": false
+    },
+    {
+      "id": 5,
+      "title": "Pirate-Personality",
+      "image": "assets/pirate-personality.png",
+      "tech": ["JavaScript", "Vue.js"],
+      "date": "2022-11-05",
+      "links": {
+        "repo": "https://github.com/Orion-North/Pirate-Personality"
+      },
+      "description": "Pirate-Personality is a fun quiz app that determines which pirate from history you most resemble. Built with Vue.js, it offers an engaging user experience with interactive questions and dynamic results.",
+      "main": false
+    },
+    {
+      "id": 6,
+      "title": "Rollbone",
+      "image": "assets/rollbone.png",
+      "tech": ["JavaScript", "Node.js", "Express"],
+      "date": "2022-07-30",
+      "links": {
+        "repo": "https://github.com/Orion-North/Rollbone"
+      },
+      "description": "Rollbone is an online platform for tabletop RPG enthusiasts. It provides tools for character creation, campaign management, and virtual dice rolling, all within a collaborative environment.",
+      "main": false
     }
   ]
 }
