@@ -8,7 +8,6 @@
 /* Fonts & Colors */
 body {
   font-family: 'Roboto', sans-serif;
-  /* A darker, subtler gradient background */
   background: linear-gradient(135deg, #0f0f0f, #262626);
   color: #e0e0e0;
   line-height: 1.6;
@@ -20,15 +19,14 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background: rgba(0, 0, 0, 0.7);
+  /* Frosted glass with a subtle tint */
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
   backdrop-filter: blur(10px);
-  /* Softer purple border */
   border-bottom: 1px solid rgba(142, 68, 173, 0.3);
 }
 header h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 2.5rem;
-  /* Subtle blue text-shadow */
   text-shadow: 0 0 5px rgba(52, 152, 219, 0.7);
 }
 nav ul {
@@ -74,7 +72,6 @@ section h2 {
   margin: 0 auto;
   border: 1px solid #555;
   border-radius: 10px;
-  /* Softer box-shadow */
   box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
 }
 #slides-container {
@@ -113,7 +110,6 @@ section h2 {
   margin: 0 5px;
   text-decoration: none;
   color: #fff;
-  /* Softer blue for buttons */
   background-color: #2980b9;
   padding: 8px 15px;
   border-radius: 5px;
@@ -143,8 +139,9 @@ section h2 {
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
+  /* Frosted glass effect with a white tint */
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  backdrop-filter: blur(15px);
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
   text-align: center;
@@ -183,9 +180,10 @@ section h2 {
   justify-content: center;
 }
 .project-tile {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* Frosted glass effect with a subtle white tint */
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 20px;
   width: 300px;
   border-radius: 15px;
