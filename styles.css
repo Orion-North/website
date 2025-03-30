@@ -17,7 +17,7 @@ p {
   text-shadow: 0 0 2px rgba(1,166,255,0.3);
 }
 
-/* Neon & Cyber Vaporwave Palette */
+/* Color Palette */
 :root {
   --neon-pink: #FF40B3;
   --cyber-blue: #01A6FF;
@@ -29,7 +29,7 @@ p {
   --text-silver: #C9D6E1;
 }
 
-/* Body: Deep cosmic background with subtle gradient and particle texture */
+/* Body: Deep cosmic background with animated texture */
 body {
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(135deg, var(--background-dark), var(--midnight-navy));
@@ -43,14 +43,26 @@ body::before {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  /* Optional: use an external asset for subtle particle effect (stardust) */
-  background: url('assets/particles.png') repeat;
-  opacity: 0.05;
+  /* Combined particle and constellation overlay */
+  background: 
+    url('assets/constellations.svg') no-repeat center,
+    url('assets/particles.png') repeat;
+  background-size: cover, 50px 50px;
+  opacity: 0.1;
+  animation: driftParticles 20s linear infinite, pulseConstellation 10s ease-in-out infinite;
   pointer-events: none;
   z-index: -1;
 }
+@keyframes driftParticles {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-50px, -50px); }
+}
+@keyframes pulseConstellation {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.15; }
+}
 
-/* Carousel Wrapper to force centering */
+/* Carousel Wrapper: Ensures carousel is centered */
 .carousel-wrapper {
   display: flex;
   justify-content: center;
@@ -105,7 +117,7 @@ section h2 {
   text-shadow: 0 0 4px var(--vapor-purple);
 }
 
-/* Main Page (index.html) Overrides */
+/* MAIN PAGE OVERRIDES (index.html) */
 #home-content, #contact {
   background: transparent;
   box-shadow: none;
@@ -116,7 +128,7 @@ section h2 {
   text-align: center;
 }
 
-/* Glassmorphic Panels for non–main-page text containers */
+/* Glassmorphic Panels for other text containers */
 #about, #capstone-content, .bio-container, .resume-container {
   background: rgba(16,16,20,0.7);
   backdrop-filter: blur(6px);
@@ -185,7 +197,7 @@ section h2 {
   margin: 0 8px;
   text-decoration: none;
   color: var(--text-white);
-  background-color: rgba(16,16,20,0.7);
+  background-color: rgba(15,20,40,0.8);
   padding: 10px 16px;
   border: 1px solid var(--cyber-blue);
   border-radius: 4px;
@@ -193,7 +205,7 @@ section h2 {
   font-family: 'Montserrat', sans-serif;
 }
 .slide .links a:hover {
-  background-color: rgba(16,16,20,0.7);
+  background-color: rgba(15,20,40,0.8);
   box-shadow: 0 0 8px var(--neon-pink);
   transform: scale(1.05);
 }
@@ -283,19 +295,19 @@ section h2 {
   justify-content: center;
 }
 .project-tile {
-  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(15,20,40,0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--vapor-purple);
   padding: 20px;
   width: 300px;
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(16,166,255,0.4);
+  box-shadow: 0 0 20px var(--cyber-blue);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   font-family: 'Montserrat', sans-serif;
 }
 .project-tile:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 25px rgba(16,166,255,0.5);
+  box-shadow: 0 0 30px var(--neon-pink);
 }
 .project-tile .tile-image-container {
   width: 100%;
@@ -327,7 +339,7 @@ section h2 {
   margin: 0 5px 5px 0;
   text-decoration: none;
   color: var(--text-white);
-  background-color: rgba(16,16,20,0.7);
+  background-color: rgba(15,20,40,0.8);
   border: 1px solid var(--cyber-blue);
   padding: 8px 15px;
   border-radius: 4px;
@@ -335,7 +347,7 @@ section h2 {
   font-family: 'Montserrat', sans-serif;
 }
 .project-tile .links a:hover {
-  background-color: rgba(16,16,20,0.7);
+  background-color: rgba(15,20,40,0.8);
   box-shadow: 0 0 8px var(--neon-pink);
   transform: scale(1.05);
 }
@@ -349,4 +361,20 @@ footer {
   font-size: 0.9rem;
   color: var(--text-silver);
   font-family: 'Montserrat', sans-serif;
+}
+
+/* Cursor-following stardust effect */
+.cursor-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--text-white);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.8;
+  animation: fadeParticle 0.8s ease-out forwards;
+}
+@keyframes fadeParticle {
+  from { transform: scale(1); opacity: 0.8; }
+  to { transform: scale(3); opacity: 0; }
 }

@@ -9,7 +9,7 @@
       "links": {
         "repo": "https://github.com/Orion-North/Aegis"
       },
-      "description": "Aegis is an ambitious computer vision turret controller that leverages YOLO for real-time object detection and face recognition. Still in development, it promises to set a new standard in automated security solutions.",
+      "description": "Aegis is an ambitious computer vision turret controller that leverages YOLO for real-time object detection and face recognition. It promises to set a new standard in automated security solutions.",
       "main": true,
       "capstone": true,
       "capstoneLink": "capstone.html"
@@ -49,7 +49,7 @@
       "links": {
         "repo": "https://github.com/Orion-North/Bloondubs"
       },
-      "description": "Bloondubs is a dynamic web application that allows users to create and share short video clips with added sound effects and filters. It's built with React and leverages Redux for state management.",
+      "description": "Bloondubs is a dynamic web application that allows users to create and share short video clips with added sound effects and filters. Built with React and Redux, it delivers a rich interactive experience.",
       "main": false
     },
     {
@@ -61,7 +61,7 @@
       "links": {
         "repo": "https://github.com/Orion-North/Pirate-Personality"
       },
-      "description": "Pirate-Personality is a fun quiz app that determines which pirate from history you most resemble. Built with Vue.js, it offers an engaging user experience with interactive questions and dynamic results.",
+      "description": "Pirate-Personality is a fun quiz app that determines which pirate from history you most resemble. Built with Vue.js, it offers interactive questions and dynamic results.",
       "main": false
     },
     {
@@ -74,7 +74,7 @@
         "repo": "https://github.com/Orion-North/Rollbone",
         "demo": "https://orion-north.github.io/Rollbone/"
       },
-      "description": "Rollbone is an online platform for tabletop RPG enthusiasts. It provides tools for character creation, campaign management, and virtual dice rolling, all within a collaborative environment.",
+      "description": "Rollbone is an online platform for tabletop RPG enthusiasts. It provides tools for character creation, campaign management, and virtual dice rolling within a collaborative environment.",
       "main": false
     }
   ]
