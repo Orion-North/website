@@ -13,6 +13,9 @@
 }
 p {
   margin: 1em 0;
+  font-weight: 300;
+  /* Subtle neon glow for body text */
+  text-shadow: 0 0 2px rgba(1,166,255,0.3);
 }
 
 /* Color Palette */
@@ -20,12 +23,13 @@ p {
   --neon-pink: #FF40B3;
   --cyber-blue: #01A6FF;
   --vapor-purple: #7C4DFF;
-  --background-dark: #0A0A0E; /* Deep dark base */
+  --holo-silver: #E0E5EC;
+  --background-dark: #0A0A0E;
   --text-white: #FFFFFF;
   --text-silver: #C9D6E1;
 }
 
-/* Body: Dark, sleek background with a subtle geometric texture */
+/* Body: Dark background with animated particle overlay */
 body {
   font-family: 'Montserrat', sans-serif;
   background: var(--background-dark);
@@ -34,18 +38,25 @@ body {
   position: relative;
   overflow-x: hidden;
 }
-body::before {
+
+/* Particle overlay for subtle dynamic texture */
+body::after {
   content: "";
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  /* Faint animated geometric pattern (requires an asset at assets/geometry.png) */
-  background: url('assets/geometry.png') repeat;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
   opacity: 0.05;
+  animation: drift 20s linear infinite;
   pointer-events: none;
   z-index: -1;
+}
+@keyframes drift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-50px, -50px); }
 }
 
 /* Header */
@@ -54,7 +65,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background: rgba(16, 16, 20, 0.7);
+  background: rgba(16,16,20,0.7);
   backdrop-filter: blur(4px);
   border-bottom: 1px solid var(--vapor-purple);
   position: relative;
@@ -90,31 +101,28 @@ nav a.active {
 section h2 {
   font-family: 'Orbitron', sans-serif;
   font-size: 36px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   text-align: center;
   color: var(--cyber-blue);
   text-shadow: 0 0 4px var(--vapor-purple);
 }
 
 /* Glassmorphic Panels for non–main-page text containers */
-#about, #contact:not(#home-contact), #capstone-content, 
-.bio-container, .resume-container {
-  background: rgba(16, 16, 20, 0.7);
+#about, #contact, #capstone-content, .text-container {
+  background: rgba(16,16,20,0.7);
   backdrop-filter: blur(6px);
   border-radius: 8px;
   padding: 20px;
   margin: 40px auto;
   max-width: 800px;
-  box-shadow: 0 0 12px rgba(1, 166, 255, 0.2);
+  box-shadow: 0 0 12px rgba(1,166,255,0.3);
   text-align: center;
   position: relative;
   z-index: 1;
 }
 
 /* MAIN PAGE CONTAINER OVERRIDE (for index.html) */
-/* Home content & contact on the main page should be full-width with margins, no glass effect */
-#home-content, 
-#contact {
+#home-content, #contact {
   background: transparent;
   box-shadow: none;
   border: none;
@@ -128,17 +136,15 @@ section h2 {
 #carousel-section {
   margin: 40px 0;
 }
-
 #carousel {
   position: relative;
   overflow: hidden;
   max-width: 900px;
-  margin: 0 auto; /* Centers the carousel horizontally */
+  margin: 0 auto;
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(1,166,255,0.3);
   background: rgba(16,16,20,0.8);
 }
-
 #slides-container {
   display: flex;
   transition: transform 0.5s cubic-bezier(0.68,-0.55,0.27,1.55);
@@ -154,7 +160,7 @@ section h2 {
   height: 300px;
   overflow: hidden;
   border-radius: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   position: relative;
 }
 .slide .image-container img {
@@ -167,27 +173,30 @@ section h2 {
   font-family: 'Orbitron', sans-serif;
   font-size: 36px;
   color: var(--neon-pink);
-  margin-bottom: 10px;
-  text-shadow: 0 0 8px var(--neon-pink);
+  margin-bottom: 8px;
+  text-shadow: 0 0 6px var(--neon-pink);
 }
 .slide p {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   color: var(--cyber-blue);
   font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
 }
 .slide .links a {
   display: inline-block;
   margin: 0 8px;
   text-decoration: none;
   color: var(--text-white);
-  background-color: var(--cyber-blue);
+  background-color: rgba(16,16,20,0.7);
   padding: 10px 16px;
+  border: 1px solid var(--cyber-blue);
   border-radius: 4px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   font-family: 'Montserrat', sans-serif;
 }
 .slide .links a:hover {
-  background-color: var(--neon-pink);
+  background-color: rgba(16,16,20,0.7);
+  box-shadow: 0 0 8px var(--neon-pink);
   transform: scale(1.05);
 }
 #prev, #next {
@@ -224,6 +233,7 @@ section h2 {
   margin-bottom: 15px;
   color: var(--text-white);
   font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
 }
 #capstone-content .capstone-back a {
   display: inline-block;
@@ -312,20 +322,23 @@ section h2 {
   margin-bottom: 10px;
   color: var(--cyber-blue);
   font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
 }
 .project-tile .links a {
   display: inline-block;
   margin: 0 5px 5px 0;
   text-decoration: none;
   color: var(--text-white);
-  background-color: var(--cyber-blue);
+  background-color: rgba(16,16,20,0.7);
+  border: 1px solid var(--cyber-blue);
   padding: 8px 15px;
   border-radius: 4px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   font-family: 'Montserrat', sans-serif;
 }
 .project-tile .links a:hover {
-  background-color: var(--neon-pink);
+  background-color: rgba(16,16,20,0.7);
+  box-shadow: 0 0 8px var(--neon-pink);
   transform: scale(1.05);
 }
 
