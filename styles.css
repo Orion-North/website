@@ -15,31 +15,37 @@ p {
   margin: 1em 0;
 }
 
-/* Neon Vaporwave Palette */
+/* Color Palette */
 :root {
   --neon-pink: #FF40B3;
   --cyber-blue: #01A6FF;
   --vapor-purple: #7C4DFF;
-  --holo-silver: #E0E5EC;
-  --background-dark: #120E1E;
-  --background-mid: #1A1423;
+  --background-dark: #0A0A0E; /* Deep dark base */
+  --text-white: #FFFFFF;
+  --text-silver: #C9D6E1;
 }
 
-/* Body: Animated gradient background for ultra-modern feel */
+/* Body: Dark, sleek background with subtle animated texture */
 body {
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, var(--neon-pink), var(--vapor-purple), var(--cyber-blue));
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-  color: var(--holo-silver);
+  background: var(--background-dark);
+  color: var(--text-silver);
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
 }
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Faint animated geometric pattern can be implemented via an external asset or CSS gradient animation */
+  background: url('assets/geometry.png') repeat;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* Header */
@@ -48,8 +54,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
+  background: rgba(16, 16, 20, 0.7);
+  backdrop-filter: blur(4px);
   border-bottom: 1px solid var(--vapor-purple);
   position: relative;
   z-index: 2;
@@ -58,7 +64,7 @@ header h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 48px;
   color: var(--neon-pink);
-  text-shadow: 0 0 12px var(--neon-pink), 0 0 24px var(--neon-pink);
+  text-shadow: 0 0 8px var(--neon-pink), 0 0 16px var(--neon-pink);
 }
 nav ul {
   list-style: none;
@@ -67,7 +73,7 @@ nav ul {
 nav li { margin-left: 20px; }
 nav a {
   text-decoration: none;
-  color: var(--holo-silver);
+  color: var(--text-silver);
   font-weight: 700;
   padding: 8px 12px;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -87,18 +93,18 @@ section h2 {
   margin-bottom: 20px;
   text-align: center;
   color: var(--cyber-blue);
-  text-shadow: 0 0 6px var(--neon-pink);
+  text-shadow: 0 0 4px var(--vapor-purple);
 }
 
-/* Glassmorphic Panels for Sections */
+/* Glassmorphic Panels */
 #about, #contact, #capstone-content, .text-container {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  border-radius: 12px;
+  background: rgba(16, 16, 20, 0.7);
+  backdrop-filter: blur(6px);
+  border-radius: 8px;
   padding: 20px;
   margin: 40px auto;
   max-width: 800px;
-  box-shadow: 0 0 20px rgba(1, 166, 255, 0.3);
+  box-shadow: 0 0 12px rgba(1, 166, 255, 0.2);
   text-align: center;
 }
 
@@ -111,13 +117,13 @@ section h2 {
   overflow: hidden;
   max-width: 900px;
   margin: 0 auto;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(1, 166, 255, 0.4);
-  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(1, 166, 255, 0.3);
+  background: rgba(16, 16, 20, 0.8);
 }
 #slides-container {
   display: flex;
-  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition: transform 0.5s cubic-bezier(0.68,-0.55,0.27,1.55);
 }
 .slide {
   min-width: 100%;
@@ -129,7 +135,7 @@ section h2 {
   width: 100%;
   height: 300px;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 8px;
   margin-bottom: 15px;
   position: relative;
 }
@@ -137,14 +143,14 @@ section h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(1.05) contrast(1.1);
+  filter: brightness(1.1) contrast(1.2);
 }
 .slide h3 {
   font-family: 'Orbitron', sans-serif;
   font-size: 36px;
   color: var(--neon-pink);
   margin-bottom: 10px;
-  text-shadow: 0 0 8px var(--neon-pink);
+  text-shadow: 0 0 6px var(--neon-pink);
 }
 .slide p {
   margin-bottom: 10px;
@@ -155,24 +161,24 @@ section h2 {
   display: inline-block;
   margin: 0 8px;
   text-decoration: none;
-  color: #fff;
-  background-color: var(--synthwave-green, #05FFA1);
+  color: var(--text-white);
+  background-color: var(--cyber-blue);
   padding: 10px 16px;
-  border-radius: 6px;
+  border-radius: 4px;
   transition: background-color 0.3s ease, transform 0.2s ease;
   font-family: 'Montserrat', sans-serif;
 }
 .slide .links a:hover {
-  background-color: var(--hot-red-alert, #FF6B6B);
+  background-color: var(--neon-pink);
   transform: scale(1.05);
 }
 #prev, #next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(16,16,20,0.8);
   border: none;
-  color: #fff;
+  color: var(--text-white);
   font-size: 2rem;
   padding: 12px;
   cursor: pointer;
@@ -186,7 +192,7 @@ section h2 {
 #capstone-content .capstone-image img {
   width: 100%;
   max-height: 300px;
-  border-radius: 12px;
+  border-radius: 8px;
   object-fit: cover;
   filter: drop-shadow(0 0 10px var(--neon-pink));
   margin-bottom: 20px;
@@ -198,22 +204,22 @@ section h2 {
 }
 #capstone-content .capstone-details p {
   margin-bottom: 15px;
-  color: var(--holo-silver);
+  color: var(--text-white);
   font-family: 'Montserrat', sans-serif;
 }
 #capstone-content .capstone-back a {
   display: inline-block;
   margin-top: 20px;
   text-decoration: none;
-  color: #fff;
+  color: var(--text-white);
   background-color: var(--vapor-purple);
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 4px;
   transition: background-color 0.3s ease, transform 0.2s ease;
   font-family: 'Montserrat', sans-serif;
 }
 #capstone-content .capstone-back a:hover {
-  background-color: var(--hot-red-alert);
+  background-color: var(--neon-pink);
   transform: scale(1.05);
 }
 
@@ -231,8 +237,8 @@ section h2 {
   display: inline-block;
   margin: 5px;
   padding: 10px 16px;
-  background: rgba(0, 0, 0, 0.5);
-  color: var(--holo-silver);
+  background: rgba(16,16,20,0.6);
+  color: var(--text-white);
   border: 1px solid var(--vapor-purple);
   cursor: pointer;
   border-radius: 30px;
@@ -241,7 +247,7 @@ section h2 {
 }
 .filter-btn:hover,
 .filter-btn.active {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(16,16,20,0.8);
   box-shadow: 0 0 10px var(--cyber-blue);
 }
 #projects-tiles {
@@ -251,25 +257,25 @@ section h2 {
   justify-content: center;
 }
 .project-tile {
-  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
   backdrop-filter: blur(15px);
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.25);
   padding: 20px;
   width: 300px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(1,166,255,0.4);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(16,166,255,0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   font-family: 'Montserrat', sans-serif;
 }
 .project-tile:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 25px rgba(1,166,255,0.5);
+  box-shadow: 0 0 25px rgba(16,166,255,0.5);
 }
 .project-tile .tile-image-container {
   width: 100%;
   height: 200px;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 8px;
   margin-bottom: 15px;
 }
 .project-tile .tile-image-container img {
@@ -293,15 +299,15 @@ section h2 {
   display: inline-block;
   margin: 0 5px 5px 0;
   text-decoration: none;
-  color: #fff;
-  background-color: var(--synthwave-green, #05FFA1);
+  color: var(--text-white);
+  background-color: var(--cyber-blue);
   padding: 8px 15px;
-  border-radius: 6px;
+  border-radius: 4px;
   transition: background-color 0.3s ease, transform 0.2s ease;
   font-family: 'Montserrat', sans-serif;
 }
 .project-tile .links a:hover {
-  background-color: var(--hot-red-alert, #FF6B6B);
+  background-color: var(--neon-pink);
   transform: scale(1.05);
 }
 
@@ -312,6 +318,6 @@ footer {
   border-top: 1px solid var(--vapor-purple);
   margin-top: 40px;
   font-size: 0.9rem;
-  color: var(--holo-silver);
+  color: var(--text-silver);
   font-family: 'Montserrat', sans-serif;
 }
