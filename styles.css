@@ -71,8 +71,8 @@ header {
 header h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 48px;
-  color: var(--neon-pink);
-  text-shadow: 0 0 8px var(--neon-pink), 0 0 16px var(--neon-pink);
+  color: var(--vapor-purple);
+  text-shadow: 0 0 8px var(--vapor-purple), 0 0 16px var(--vapor-purple);
 }
 nav ul {
   list-style: none;
