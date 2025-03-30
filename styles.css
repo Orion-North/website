@@ -29,7 +29,7 @@ p {
   --text-silver: #C9D6E1;
 }
 
-/* Body: Deep cosmic background with animated texture */
+/* Body: Deep cosmic background with a connected constellation overlay */
 body {
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(135deg, var(--background-dark), var(--midnight-navy));
@@ -42,27 +42,18 @@ body {
 body::before {
   content: "";
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  /* Combined particle and constellation overlay */
-  background: 
-    url('assets/constellations.svg') no-repeat center,
-    url('assets/particles.png') repeat;
-  background-size: cover, 50px 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Use a pre-made SVG showing elegant, connected constellation lines */
+  background: url('assets/constellations.svg') center/cover no-repeat;
   opacity: 0.1;
-  animation: driftParticles 20s linear infinite, pulseConstellation 10s ease-in-out infinite;
   pointer-events: none;
   z-index: -1;
 }
-@keyframes driftParticles {
-  from { transform: translate(0, 0); }
-  to { transform: translate(-50px, -50px); }
-}
-@keyframes pulseConstellation {
-  0%, 100% { opacity: 0.1; }
-  50% { opacity: 0.15; }
-}
 
-/* Carousel Wrapper: Ensures carousel is centered */
+/* Carousel Wrapper: ensures carousel is centered */
 .carousel-wrapper {
   display: flex;
   justify-content: center;
@@ -85,13 +76,16 @@ header h1 {
   font-family: 'Oxanium', sans-serif;
   font-size: 48px;
   color: var(--neon-pink);
-  text-shadow: 0 0 8px var(--neon-pink), 0 0 16px var(--neon-pink);
+  text-shadow: 0 0 4px var(--neon-pink), 0 0 8px var(--neon-pink);
+  letter-spacing: 2px;
 }
 nav ul {
   list-style: none;
   display: flex;
 }
-nav li { margin-left: 20px; }
+nav li { 
+  margin-left: 20px; 
+}
 nav a {
   text-decoration: none;
   color: var(--text-silver);
@@ -114,10 +108,11 @@ section h2 {
   margin-bottom: 12px;
   text-align: center;
   color: var(--cyber-blue);
-  text-shadow: 0 0 4px var(--vapor-purple);
+  text-shadow: 0 0 2px var(--vapor-purple);
+  letter-spacing: 2px;
 }
 
-/* MAIN PAGE OVERRIDES (index.html) */
+/* MAIN PAGE OVERRIDES (for index.html) */
 #home-content, #contact {
   background: transparent;
   box-shadow: none;
@@ -128,7 +123,7 @@ section h2 {
   text-align: center;
 }
 
-/* Glassmorphic Panels for other text containers */
+/* Glassmorphic Panels for non–main-page text containers */
 #about, #capstone-content, .bio-container, .resume-container {
   background: rgba(16,16,20,0.7);
   backdrop-filter: blur(6px);
@@ -178,13 +173,16 @@ section h2 {
   height: 100%;
   object-fit: cover;
   filter: brightness(1.1) contrast(1.2);
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
 .slide h3 {
   font-family: 'Oxanium', sans-serif;
   font-size: 36px;
   color: var(--neon-pink);
   margin-bottom: 8px;
-  text-shadow: 0 0 6px var(--neon-pink);
+  text-shadow: 0 0 4px var(--neon-pink);
+  letter-spacing: 2px;
 }
 .slide p {
   margin-bottom: 8px;
@@ -197,15 +195,16 @@ section h2 {
   margin: 0 8px;
   text-decoration: none;
   color: var(--text-white);
-  background-color: rgba(15,20,40,0.8);
+  background-color: rgba(15,20,40,0.7);
   padding: 10px 16px;
   border: 1px solid var(--cyber-blue);
-  border-radius: 4px;
+  border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
 }
 .slide .links a:hover {
-  background-color: rgba(15,20,40,0.8);
+  background-color: rgba(15,20,40,0.7);
   box-shadow: 0 0 8px var(--neon-pink);
   transform: scale(1.05);
 }
@@ -252,9 +251,10 @@ section h2 {
   color: var(--text-white);
   background-color: var(--vapor-purple);
   padding: 10px 20px;
-  border-radius: 4px;
+  border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.2s ease;
   font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
 }
 #capstone-content .capstone-back a:hover {
   background-color: var(--neon-pink);
@@ -282,6 +282,7 @@ section h2 {
   border-radius: 30px;
   transition: background 0.3s ease, box-shadow 0.3s ease;
   font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
 }
 .filter-btn:hover,
 .filter-btn.active {
@@ -295,7 +296,7 @@ section h2 {
   justify-content: center;
 }
 .project-tile {
-  background: rgba(15,20,40,0.8);
+  background: rgba(15,20,40,0.7);
   backdrop-filter: blur(8px);
   border: 1px solid var(--vapor-purple);
   padding: 20px;
@@ -304,6 +305,7 @@ section h2 {
   box-shadow: 0 0 20px var(--cyber-blue);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
 }
 .project-tile:hover {
   transform: scale(1.03);
@@ -320,6 +322,8 @@ section h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
 .project-tile h3 {
   font-family: 'Oxanium', sans-serif;
@@ -327,6 +331,7 @@ section h2 {
   color: var(--neon-pink);
   margin-bottom: 10px;
   text-shadow: 0 0 4px var(--neon-pink);
+  letter-spacing: 1px;
 }
 .project-tile p {
   margin-bottom: 10px;
@@ -339,15 +344,16 @@ section h2 {
   margin: 0 5px 5px 0;
   text-decoration: none;
   color: var(--text-white);
-  background-color: rgba(15,20,40,0.8);
+  background-color: rgba(15,20,40,0.7);
   border: 1px solid var(--cyber-blue);
   padding: 8px 15px;
-  border-radius: 4px;
+  border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
 }
 .project-tile .links a:hover {
-  background-color: rgba(15,20,40,0.8);
+  background-color: rgba(15,20,40,0.7);
   box-shadow: 0 0 8px var(--neon-pink);
   transform: scale(1.05);
 }
