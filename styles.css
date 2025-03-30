@@ -14,7 +14,6 @@
 p {
   margin: 1em 0;
   font-weight: 300;
-  /* Subtle neon glow for body text */
   text-shadow: 0 0 2px rgba(1,166,255,0.3);
 }
 
@@ -23,13 +22,12 @@ p {
   --neon-pink: #FF40B3;
   --cyber-blue: #01A6FF;
   --vapor-purple: #7C4DFF;
-  --holo-silver: #E0E5EC;
   --background-dark: #0A0A0E;
   --text-white: #FFFFFF;
   --text-silver: #C9D6E1;
 }
 
-/* Body: Dark background with animated particle overlay */
+/* Body: Dark background with subtle particle overlay */
 body {
   font-family: 'Montserrat', sans-serif;
   background: var(--background-dark);
@@ -38,25 +36,24 @@ body {
   position: relative;
   overflow-x: hidden;
 }
-
-/* Particle overlay for subtle dynamic texture */
-body::after {
+body::before {
   content: "";
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-  background-size: 50px 50px;
+  right: 0;
+  bottom: 0;
+  background: url('assets/geometry.png') repeat;
   opacity: 0.05;
-  animation: drift 20s linear infinite;
   pointer-events: none;
   z-index: -1;
 }
-@keyframes drift {
-  from { transform: translate(0, 0); }
-  to { transform: translate(-50px, -50px); }
+
+/* Carousel Wrapper: ensures carousel is centered */
+.carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 /* Header */
@@ -108,7 +105,7 @@ section h2 {
 }
 
 /* Glassmorphic Panels for non–main-page text containers */
-#about, #contact, #capstone-content, .text-container {
+#about, #contact, #capstone-content, .bio-container, .resume-container {
   background: rgba(16,16,20,0.7);
   backdrop-filter: blur(6px);
   border-radius: 8px;
@@ -160,7 +157,7 @@ section h2 {
   height: 300px;
   overflow: hidden;
   border-radius: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
   position: relative;
 }
 .slide .image-container img {
