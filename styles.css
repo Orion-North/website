@@ -128,15 +128,17 @@ section h2 {
 #carousel-section {
   margin: 40px 0;
 }
+
 #carousel {
   position: relative;
   overflow: hidden;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto; /* Centers the carousel horizontally */
   border-radius: 8px;
-  box-shadow: 0 0 12px rgba(1, 166, 255, 0.3);
+  box-shadow: 0 0 12px rgba(1,166,255,0.3);
   background: rgba(16,16,20,0.8);
 }
+
 #slides-container {
   display: flex;
   transition: transform 0.5s cubic-bezier(0.68,-0.55,0.27,1.55);
