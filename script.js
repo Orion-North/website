@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
       /* --- Carousel for Featured Projects (index.html) --- */
       const slidesContainer = document.getElementById('slides-container');
       if (slidesContainer) {
-        // Filter for projects marked as "main"
         const mainProjects = projects.filter(project => project.main);
         let currentSlide = 0;
         mainProjects.forEach(project => {
@@ -31,13 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
           slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
         
-        // Auto-slide timer set to 8 seconds
         let autoSlideTimer = setInterval(() => {
           currentSlide = (currentSlide + 1) % totalSlides;
           updateCarousel();
         }, 8000);
         
-        // Reset timer on manual click
         function resetTimer() {
           clearInterval(autoSlideTimer);
           autoSlideTimer = setInterval(() => {
@@ -68,13 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
             project.tech.forEach(tech => techSet.add(tech));
           }
         });
-        // Create "All" filter button
         const allBtn = document.createElement('button');
         allBtn.classList.add('filter-btn', 'active');
         allBtn.textContent = 'All';
         allBtn.dataset.filter = 'all';
         filterButtonsContainer.appendChild(allBtn);
-        // Create buttons for each tech tag
         techSet.forEach(tech => {
           const btn = document.createElement('button');
           btn.classList.add('filter-btn');
@@ -106,10 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         }
         
-        // Initial render with "all" filter
         renderProjects('all');
         
-        // Filter button click events
         document.querySelectorAll('.filter-btn').forEach(btn => {
           btn.addEventListener('click', function() {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
