@@ -25,7 +25,7 @@ p {
   --text-silver: #C9D6E1;
 }
 
-/* Body: Dark, sleek background with subtle animated texture */
+/* Body: Dark, sleek background with a subtle geometric texture */
 body {
   font-family: 'Montserrat', sans-serif;
   background: var(--background-dark);
@@ -41,7 +41,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  /* Faint animated geometric pattern can be implemented via an external asset or CSS gradient animation */
+  /* Faint animated geometric pattern (requires an asset at assets/geometry.png) */
   background: url('assets/geometry.png') repeat;
   opacity: 0.05;
   pointer-events: none;
@@ -96,8 +96,9 @@ section h2 {
   text-shadow: 0 0 4px var(--vapor-purple);
 }
 
-/* Glassmorphic Panels */
-#about, #contact, #capstone-content, .text-container {
+/* Glassmorphic Panels for non–main-page text containers */
+#about, #contact:not(#home-contact), #capstone-content, 
+.bio-container, .resume-container {
   background: rgba(16, 16, 20, 0.7);
   backdrop-filter: blur(6px);
   border-radius: 8px;
@@ -105,6 +106,21 @@ section h2 {
   margin: 40px auto;
   max-width: 800px;
   box-shadow: 0 0 12px rgba(1, 166, 255, 0.2);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* MAIN PAGE CONTAINER OVERRIDE (for index.html) */
+/* Home content & contact on the main page should be full-width with margins, no glass effect */
+#home-content, 
+#contact {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px;
   text-align: center;
 }
 
@@ -119,7 +135,7 @@ section h2 {
   margin: 0 auto;
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(1, 166, 255, 0.3);
-  background: rgba(16, 16, 20, 0.8);
+  background: rgba(16,16,20,0.8);
 }
 #slides-container {
   display: flex;
@@ -150,7 +166,7 @@ section h2 {
   font-size: 36px;
   color: var(--neon-pink);
   margin-bottom: 10px;
-  text-shadow: 0 0 6px var(--neon-pink);
+  text-shadow: 0 0 8px var(--neon-pink);
 }
 .slide p {
   margin-bottom: 10px;
