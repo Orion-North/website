@@ -5,6 +5,18 @@
   box-sizing: border-box;
 }
 
+/* Global Container for text sections */
+.text-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Global Paragraph Margin */
+p {
+  margin: 1em 0;
+}
+
 /* Fonts & Colors */
 body {
   font-family: 'Roboto', sans-serif;
