@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="links">
               ${project.links.repo ? `<a href="${project.links.repo}" target="_blank">Repo</a>` : ''}
               ${project.links.demo ? `<a href="${project.links.demo}" target="_blank">Demo</a>` : ''}
+              ${project.capstone ? `<a class="capstone-btn" href="${project.capstoneLink}">View Details</a>` : ''}
             </div>
           `;
           slidesContainer.appendChild(slide);
