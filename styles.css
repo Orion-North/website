@@ -19,7 +19,6 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  /* Frosted glass with a subtle tint */
   background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(142, 68, 173, 0.3);
@@ -134,17 +133,48 @@ section h2 {
 #prev { left: 10px; }
 #next { right: 10px; }
 
-/* About & Contact Sections */
-#about, #contact {
+/* About, Contact, and Capstone Sections */
+#about, #contact, #capstone-content {
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  /* Frosted glass effect with a white tint */
   background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
   backdrop-filter: blur(15px);
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
   text-align: center;
+}
+
+/* Capstone Page Specific */
+#capstone-content .capstone-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  max-height: 300px;
+  margin-bottom: 20px;
+}
+#capstone-content .capstone-details {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 700px;
+}
+#capstone-content .capstone-details p {
+  margin-bottom: 15px;
+  color: #d0d0d0;
+}
+#capstone-content .capstone-back a {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #2980b9;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+#capstone-content .capstone-back a:hover {
+  background-color: #3498db;
 }
 
 /* Projects Tiles & Filter */
@@ -180,7 +210,6 @@ section h2 {
   justify-content: center;
 }
 .project-tile {
-  /* Frosted glass effect with a subtle white tint */
   background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -196,7 +225,7 @@ section h2 {
 }
 .project-tile .tile-image-container {
   width: 100%;
-  height: 200px; /* Fixed height for project tile images */
+  height: 200px;
   overflow: hidden;
   border-radius: 10px;
   margin-bottom: 15px;

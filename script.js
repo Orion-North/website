@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
       /* --- Carousel for Featured Projects (index.html) --- */
       const slidesContainer = document.getElementById('slides-container');
       if (slidesContainer) {
+        // Filter for projects marked as "main"
         const mainProjects = projects.filter(project => project.main);
         let currentSlide = 0;
         mainProjects.forEach(project => {
@@ -25,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         const totalSlides = mainProjects.length;
-        
         function updateCarousel() {
           slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="links">
                 ${project.links && project.links.repo ? `<a href="${project.links.repo}" target="_blank">Repo</a>` : ''}
                 ${project.links && project.links.demo ? `<a href="${project.links.demo}" target="_blank">Demo</a>` : ''}
+                ${project.capstone ? `<a class="capstone-btn" href="${project.capstoneLink}">View Details</a>` : ''}
               </div>
             `;
             projectsTilesContainer.appendChild(tile);

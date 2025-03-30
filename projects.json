@@ -10,7 +10,9 @@
         "repo": "https://github.com/Orion-North/Aegis"
       },
       "description": "Aegis is an ambitious computer vision turret controller that leverages YOLO for real-time object detection and face recognition. Still in development, it promises to set a new standard in automated security solutions.",
-      "main": true
+      "main": true,
+      "capstone": true,
+      "capstoneLink": "capstone.html"
     },
     {
       "id": 2,
