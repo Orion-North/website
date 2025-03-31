@@ -127,4 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
       particle.remove();
     }, 800);
   });
+
+  // Toggle Hamburger Menu
+  const hamburger = document.getElementById('hamburger');
+  const navList = document.querySelector('header nav ul');
+  if (hamburger && navList) {
+    hamburger.addEventListener('click', () => {
+      navList.classList.toggle('open');
+    });
+  }
 });
