@@ -125,11 +125,33 @@ nav a.active {
   border-bottom: 2px solid var(--accent-star);
 }
 
+/* Hide hamburger button by default */
+.hamburger {
+  display: none;
+}
+
 /* Responsive Header for Hamburger Menu */
 @media screen and (max-width: 768px) {
   header {
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+  /* Show the hamburger button only on narrow screens with styling */
+  .hamburger {
+    display: block;
+    background: transparent;
+    border: 2px solid var(--accent-star);
+    border-radius: 4px;
+    padding: 4px 8px;
+    color: var(--accent-star);
+    font-size: 2rem;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  .hamburger:hover {
+    background: var(--accent-star);
+    color: var(--deep-space);
   }
   /* Hide the nav list by default */
   header nav ul {
@@ -141,15 +163,6 @@ nav a.active {
   /* When menu is open */
   header nav ul.open {
     display: flex;
-  }
-  /* Style hamburger button */
-  .hamburger {
-    background: transparent;
-    border: none;
-    color: var(--accent-star);
-    font-size: 2rem;
-    cursor: pointer;
-    display: block;
   }
   /* Make nav links full width */
   header nav ul li {
