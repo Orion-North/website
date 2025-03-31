@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       const projects = data.projects;
 
-      /* --- Carousel for Featured Projects (index.html) --- */
+      // --- Carousel for Featured Projects (index.html) ---
       const slidesContainer = document.getElementById('slides-container');
       if (slidesContainer) {
         const mainProjects = projects.filter(project => project.main);
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      /* --- Projects Tiles & Filters for All Projects (projects.html) --- */
+      // --- Projects Tiles & Filters for All Projects (projects.html) ---
       const projectsTilesContainer = document.getElementById('projects-tiles');
       if (projectsTilesContainer) {
         const filterButtonsContainer = document.getElementById('filter-buttons');
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Error loading projects:', err);
     });
 
-  /* Cursor-following stardust effect */
+  // Cursor-following stardust effect
   document.addEventListener('mousemove', (e) => {
     let particle = document.createElement('div');
     particle.className = 'cursor-particle';

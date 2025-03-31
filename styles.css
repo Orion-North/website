@@ -29,39 +29,38 @@ p {
   --text-silver: #C9D6E1;
 }
 
-/* Body: Deep cosmic background with animated starfield & grid (no external assets) */
+/* Body: Cosmic Background with CSS-generated Starfield and Constellation Grid */
 body {
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(135deg, var(--background-dark), var(--midnight-navy));
-  background-size: cover;
   color: var(--text-silver);
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
 }
 
-/* Pseudo-element for star particles using repeating radial-gradient */
+/* Starfield: Using repeating radial gradient for tiny stars */
 body::before {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: repeating-radial-gradient(circle, 
-              rgba(255,255,255,0.2) 0px, 
-              rgba(255,255,255,0.2) 1px, 
+              rgba(255,255,255,0.15) 0px, 
+              rgba(255,255,255,0.15) 1px, 
               transparent 1px, 
               transparent 3px);
   background-size: 3px 3px;
   opacity: 0.2;
-  animation: driftParticles 30s linear infinite;
+  animation: driftStars 30s linear infinite;
   pointer-events: none;
   z-index: -2;
 }
-@keyframes driftParticles {
+@keyframes driftStars {
   from { transform: translate(0, 0); }
   to { transform: translate(-100px, -100px); }
 }
 
-/* Pseudo-element for constellation grid lines using repeating-linear-gradient */
+/* Constellation Grid: Using two linear gradients for horizontal and vertical lines */
 body::after {
   content: "";
   position: fixed;
@@ -71,11 +70,11 @@ body::after {
     linear-gradient(0deg, transparent, transparent 98%, rgba(200,200,255,0.05) 98%, rgba(200,200,255,0.05) 100%);
   background-size: 50px 50px;
   opacity: 0.15;
-  animation: pulseConstellations 15s ease-in-out infinite;
+  animation: pulseGrid 15s ease-in-out infinite;
   pointer-events: none;
   z-index: -1;
 }
-@keyframes pulseConstellations {
+@keyframes pulseGrid {
   0%, 100% { opacity: 0.15; }
   50% { opacity: 0.2; }
 }
