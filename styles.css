@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-/* Global container for text sections */
+/* Global Text Container */
 .text-container {
   max-width: 800px;
   margin: 0 auto;
@@ -29,7 +29,7 @@ p {
   --text-silver: #C9D6E1;
 }
 
-/* Body: Deep cosmic background with a connected constellation overlay */
+/* Body: Deep cosmic background with animated starfield & grid (no external assets) */
 body {
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(135deg, var(--background-dark), var(--midnight-navy));
@@ -39,21 +39,48 @@ body {
   position: relative;
   overflow-x: hidden;
 }
+
+/* Pseudo-element for star particles using repeating radial-gradient */
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* Use a pre-made SVG showing elegant, connected constellation lines */
-  background: url('assets/constellations.svg') center/cover no-repeat;
-  opacity: 0.1;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-radial-gradient(circle, 
+              rgba(255,255,255,0.2) 0px, 
+              rgba(255,255,255,0.2) 1px, 
+              transparent 1px, 
+              transparent 3px);
+  background-size: 3px 3px;
+  opacity: 0.2;
+  animation: driftParticles 30s linear infinite;
+  pointer-events: none;
+  z-index: -2;
+}
+@keyframes driftParticles {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-100px, -100px); }
+}
+
+/* Pseudo-element for constellation grid lines using repeating-linear-gradient */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent, transparent 98%, rgba(200,200,255,0.05) 98%, rgba(200,200,255,0.05) 100%),
+    linear-gradient(0deg, transparent, transparent 98%, rgba(200,200,255,0.05) 98%, rgba(200,200,255,0.05) 100%);
+  background-size: 50px 50px;
+  opacity: 0.15;
+  animation: pulseConstellations 15s ease-in-out infinite;
   pointer-events: none;
   z-index: -1;
 }
+@keyframes pulseConstellations {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.2; }
+}
 
-/* Carousel Wrapper: ensures carousel is centered */
+/* Carousel Wrapper */
 .carousel-wrapper {
   display: flex;
   justify-content: center;
@@ -73,7 +100,7 @@ header {
   z-index: 2;
 }
 header h1 {
-  font-family: 'Oxanium', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-size: 48px;
   color: var(--neon-pink);
   text-shadow: 0 0 4px var(--neon-pink), 0 0 8px var(--neon-pink);
@@ -91,7 +118,7 @@ nav a {
   color: var(--text-silver);
   font-weight: 700;
   padding: 8px 12px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1);
   border-bottom: 2px solid transparent;
   position: relative;
 }
@@ -103,17 +130,18 @@ nav a.active {
 
 /* Section Titles */
 section h2 {
-  font-family: 'Oxanium', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-size: 36px;
   margin-bottom: 12px;
   text-align: center;
   color: var(--cyber-blue);
-  text-shadow: 0 0 2px var(--vapor-purple);
+  text-shadow: 0 0 4px var(--vapor-purple);
   letter-spacing: 2px;
 }
 
-/* MAIN PAGE OVERRIDES (for index.html) */
-#home-content, #contact {
+/* MAIN PAGE OVERRIDES */
+#home-content, 
+#contact.full-width {
   background: transparent;
   box-shadow: none;
   border: none;
@@ -123,7 +151,7 @@ section h2 {
   text-align: center;
 }
 
-/* Glassmorphic Panels for non–main-page text containers */
+/* Glassmorphic Panels for Other Pages */
 #about, #capstone-content, .bio-container, .resume-container {
   background: rgba(16,16,20,0.7);
   backdrop-filter: blur(6px);
@@ -159,6 +187,10 @@ section h2 {
   padding: 20px;
   text-align: center;
   position: relative;
+  transition: transform 0.3s ease;
+}
+.slide:hover {
+  transform: translateY(-4px);
 }
 .slide .image-container {
   width: 100%;
@@ -177,7 +209,7 @@ section h2 {
   box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
 .slide h3 {
-  font-family: 'Oxanium', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-size: 36px;
   color: var(--neon-pink);
   margin-bottom: 8px;
@@ -224,7 +256,7 @@ section h2 {
 #prev { left: 16px; }
 #next { right: 16px; }
 
-/* Capstone Page Specific */
+/* Capstone Page */
 #capstone-content .capstone-image img {
   width: 100%;
   max-height: 300px;
@@ -306,9 +338,10 @@ section h2 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
+  perspective: 1000px;
 }
 .project-tile:hover {
-  transform: scale(1.03);
+  transform: scale(1.03) translateY(-4px) rotateX(1deg);
   box-shadow: 0 0 30px var(--neon-pink);
 }
 .project-tile .tile-image-container {
@@ -326,7 +359,7 @@ section h2 {
   box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
 .project-tile h3 {
-  font-family: 'Oxanium', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-size: 24px;
   color: var(--neon-pink);
   margin-bottom: 10px;
@@ -369,7 +402,7 @@ footer {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* Cursor-following stardust effect */
+/* Cursor-Following Stardust Effect */
 .cursor-particle {
   position: absolute;
   width: 4px;
