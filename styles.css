@@ -181,15 +181,18 @@ nav a.active {
   header nav ul {
     position: fixed;
     top: 0;
-    right: 0; /* Changed from left to right */
+    right: 0;
     width: 250px;
     height: 100%;
-    background: rgba(0,8,20,1); /* Changed from 0.9 to 1 for no transparency */
+    background: var(--deep-space); /* Solid background color */
+    border-left: 2px solid var(--accent-star); /* Add border for definition */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
     padding-top: 60px;
-    transform: translateX(100%); /* Changed from -100% to 100% for right side sliding */
+    transform: translateX(100%);
     transition: transform 0.3s ease;
     flex-direction: column;
-    z-index: 3;
+    z-index: 100; /* Higher z-index to ensure it's above everything */
+    backdrop-filter: none; /* Remove any backdrop filter */
   }
   
   /* When open, slide in */
