@@ -93,8 +93,10 @@ header {
   background: rgba(0,8,20,0.7);
   backdrop-filter: blur(4px);
   border-bottom: 1px solid var(--accent-star);
-  position: relative;
-  z-index: 2;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 header h1 {
   font-family: 'Orbitron', sans-serif;
@@ -125,9 +127,9 @@ nav a.active {
   border-bottom: 2px solid var(--accent-star);
 }
 
-/* Global Hamburger Button visible on all screens */
+/* Global Hamburger Button now hidden on larger screens */
 .hamburger {
-  display: block;
+  display: none;
   position: fixed;
   top: 20px;
   left: 20px;
@@ -144,6 +146,13 @@ nav a.active {
 .hamburger:hover {
   background: var(--accent-star);
   color: var(--deep-space);
+}
+
+/* Show hamburger only on small screens */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
 }
 
 /* Side Sliding Menu for Navigation */
