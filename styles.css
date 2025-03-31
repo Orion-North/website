@@ -106,13 +106,24 @@ header h1 {
   text-shadow: 0 0 4px var(--accent-star), 0 0 8px var(--accent-star);
   letter-spacing: 2px;
 }
-nav ul {
+
+/* Navigation menu - Default styling for larger screens */
+header nav ul {
   list-style: none;
   display: flex;
+  flex-direction: row;
+  position: static;
+  background: transparent;
+  padding: 0;
+  transform: none;
+  width: auto;
+  height: auto;
 }
+
 nav li { 
   margin-left: 20px; 
 }
+
 nav a {
   text-decoration: none;
   color: var(--text-color);
@@ -156,23 +167,44 @@ nav a.active {
   }
 }
 
-/* Side Sliding Menu for Navigation */
-header nav ul {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 100%;
-  background: rgba(0,8,20,0.9);
-  padding-top: 60px;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-  flex-direction: column;
-  z-index: 3;
-}
-/* When open, slide in */
-header nav ul.open {
-  transform: translateX(0);
+/* Side Sliding Menu for Navigation - Only on small screens */
+@media screen and (max-width: 768px) {
+  header nav ul {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: rgba(0,8,20,0.9);
+    padding-top: 60px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    flex-direction: column;
+    z-index: 3;
+  }
+  
+  /* When open, slide in */
+  header nav ul.open {
+    transform: translateX(0);
+  }
+  
+  /* Hide the nav list by default on small screens */
+  header nav ul {
+    display: none;
+  }
+  
+  /* When menu is open */
+  header nav ul.open {
+    display: flex;
+  }
+  
+  /* Make nav links full width */
+  header nav ul li {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid var(--accent-star);
+    margin-left: 0;
+  }
 }
 
 /* Responsive Header for Hamburger Menu */
@@ -180,23 +212,6 @@ header nav ul.open {
   header {
     flex-wrap: wrap;
     justify-content: space-between;
-  }
-  /* Hide the nav list by default */
-  header nav ul {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    margin-top: 10px;
-  }
-  /* When menu is open */
-  header nav ul.open {
-    display: flex;
-  }
-  /* Make nav links full width */
-  header nav ul li {
-    text-align: center;
-    padding: 10px 0;
-    border-top: 1px solid var(--accent-star);
   }
 }
 
