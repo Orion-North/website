@@ -35,6 +35,7 @@ body {
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
+  padding-top: 100px; /* Added to offset the fixed header height */
 }
 
 /* Starfield: Delicate, scattered stardust */
