@@ -142,13 +142,12 @@ nav a.active {
 /* Global Hamburger Button now hidden on larger screens */
 .hamburger {
   display: none;
-  position: fixed;
-  top: 20px;
-  left: 20px;
+  position: static; /* Changed from fixed to static so it sits in the nav flow */
   background: transparent;
   border: 2px solid var(--accent-star);
   border-radius: 4px;
   padding: 4px 8px;
+  margin-left: 20px; /* Add some spacing from the title */
   color: var(--accent-star);
   font-size: 2rem;
   cursor: pointer;
@@ -164,20 +163,30 @@ nav a.active {
 @media screen and (max-width: 768px) {
   .hamburger {
     display: block;
+    order: 2; /* Ensures it appears after the title */
   }
 }
 
 /* Side Sliding Menu for Navigation - Only on small screens */
 @media screen and (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  header h1 {
+    font-size: 36px; /* Slightly smaller on mobile */
+  }
+
   header nav ul {
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0; /* Changed from left to right */
     width: 250px;
     height: 100%;
-    background: rgba(0,8,20,0.9);
+    background: rgba(0,8,20,1); /* Changed from 0.9 to 1 for no transparency */
     padding-top: 60px;
-    transform: translateX(-100%);
+    transform: translateX(100%); /* Changed from -100% to 100% for right side sliding */
     transition: transform 0.3s ease;
     flex-direction: column;
     z-index: 3;
@@ -204,14 +213,6 @@ nav a.active {
     padding: 10px 0;
     border-top: 1px solid var(--accent-star);
     margin-left: 0;
-  }
-}
-
-/* Responsive Header for Hamburger Menu */
-@media screen and (max-width: 768px) {
-  header {
-    flex-wrap: wrap;
-    justify-content: space-between;
   }
 }
 
