@@ -15,42 +15,40 @@
 p {
   margin: 1em 0;
   font-weight: 300;
-  text-shadow: 0 0 8px rgba(245,245,245,0.1);
+  text-shadow: 0 0 2px rgba(181,157,69,0.2);
 }
 
 /* Deep Space Color Palette */
 :root {
-  --deep-space: #0a0a0f;
-  --nebula-blue: #1b263b;
-  --cosmic-purple: #3a0ca3;
-  --starlight-white: #f5f5f5;
-  --meteor-orange: #ff6d00;
-  --quasar-green: #32ff7e;
-  --accent-shadow: rgba(58,12,163,0.5);
+  --deep-space: #0a192f;      /* Deep dark blue */
+  --nebula-blue: #172a45;      /* Slightly lighter blue */
+  --muted-yellow: #b59d45;     /* Muted yellow accent */
+  --soft-yellow: #e0d9b9;      /* Soft yellow for text */
+  --accent-shadow: rgba(181,157,69,0.5);
 }
 
-/* Body: Cosmic Deep Space Background with Starfield and Constellation Grid */
+/* Body: Cosmic Deep Blue Background with Subtle Starfield and Constellation Grid */
 body {
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(135deg, var(--deep-space), var(--nebula-blue));
-  color: var(--starlight-white);
+  color: var(--soft-yellow);
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
 }
 
-/* Starfield: Tiny flickering stars */
+/* Starfield: Soft, scattered stardust */
 body::before {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: repeating-radial-gradient(circle, 
-              rgba(245,245,245,0.1) 0px, 
-              rgba(245,245,245,0.1) 1px, 
+              rgba(224,217,185,0.1) 0px, 
+              rgba(224,217,185,0.1) 1px, 
               transparent 1px, 
               transparent 3px);
   background-size: 3px 3px;
-  opacity: 0.3;
+  opacity: 0.2;
   animation: driftStars 40s linear infinite;
   pointer-events: none;
   z-index: -2;
@@ -60,14 +58,14 @@ body::before {
   to { transform: translate(-120px, -120px); }
 }
 
-/* Constellation Grid: Ethereal cosmic connections */
+/* Constellation Grid: Faint cosmic connections */
 body::after {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: 
-    linear-gradient(90deg, transparent, transparent 97%, rgba(255,255,255,0.05) 97%, rgba(255,255,255,0.05) 100%),
-    linear-gradient(0deg, transparent, transparent 97%, rgba(255,255,255,0.05) 97%, rgba(255,255,255,0.05) 100%);
+    linear-gradient(90deg, transparent, transparent 97%, rgba(224,217,185,0.05) 97%, rgba(224,217,185,0.05) 100%),
+    linear-gradient(0deg, transparent, transparent 97%, rgba(224,217,185,0.05) 97%, rgba(224,217,185,0.05) 100%);
   background-size: 60px 60px;
   opacity: 0.2;
   animation: pulseGrid 20s ease-in-out infinite;
@@ -92,17 +90,17 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background: rgba(0,0,0,0.7);
+  background: rgba(10,25,47,0.7);
   backdrop-filter: blur(4px);
-  border-bottom: 1px solid var(--cosmic-purple);
+  border-bottom: 1px solid var(--muted-yellow);
   position: relative;
   z-index: 2;
 }
 header h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 48px;
-  color: var(--cosmic-purple);
-  text-shadow: 0 0 8px var(--cosmic-purple), 0 0 16px var(--cosmic-purple);
+  color: var(--muted-yellow);
+  text-shadow: 0 0 4px var(--muted-yellow), 0 0 8px var(--muted-yellow);
   letter-spacing: 2px;
 }
 nav ul {
@@ -114,7 +112,7 @@ nav li {
 }
 nav a {
   text-decoration: none;
-  color: var(--starlight-white);
+  color: var(--soft-yellow);
   font-weight: 700;
   padding: 8px 12px;
   transition: all 0.3s ease;
@@ -123,8 +121,8 @@ nav a {
 }
 nav a:hover,
 nav a.active {
-  color: var(--nebula-blue);
-  border-bottom: 2px solid var(--nebula-blue);
+  color: var(--muted-yellow);
+  border-bottom: 2px solid var(--muted-yellow);
 }
 
 /* Section Titles */
@@ -133,8 +131,8 @@ section h2 {
   font-size: 36px;
   margin-bottom: 12px;
   text-align: center;
-  color: var(--nebula-blue);
-  text-shadow: 0 0 8px var(--cosmic-purple);
+  color: var(--muted-yellow);
+  text-shadow: 0 0 4px var(--muted-yellow);
   letter-spacing: 2px;
 }
 
@@ -152,7 +150,7 @@ section h2 {
 
 /* Glassmorphic Panels for Other Pages */
 #about, #capstone-content, .bio-container, .resume-container {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(10,25,47,0.7);
   backdrop-filter: blur(6px);
   border-radius: 8px;
   padding: 20px;
@@ -175,7 +173,7 @@ section h2 {
   margin: 0 auto;
   border-radius: 8px;
   box-shadow: 0 0 12px var(--accent-shadow);
-  background: rgba(0,0,0,0.8);
+  background: rgba(10,25,47,0.8);
 }
 #slides-container {
   display: flex;
@@ -210,14 +208,14 @@ section h2 {
 .slide h3 {
   font-family: 'Orbitron', sans-serif;
   font-size: 36px;
-  color: var(--meteor-orange);
+  color: var(--muted-yellow);
   margin-bottom: 8px;
-  text-shadow: 0 0 8px var(--meteor-orange);
+  text-shadow: 0 0 4px var(--muted-yellow);
   letter-spacing: 2px;
 }
 .slide p {
   margin-bottom: 8px;
-  color: var(--nebula-blue);
+  color: var(--soft-yellow);
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
 }
@@ -225,27 +223,27 @@ section h2 {
   display: inline-block;
   margin: 0 8px;
   text-decoration: none;
-  color: var(--starlight-white);
-  background-color: rgba(0,0,0,0.7);
+  color: var(--soft-yellow);
+  background-color: rgba(10,25,47,0.7);
   padding: 10px 16px;
-  border: 1px solid var(--nebula-blue);
+  border: 1px solid var(--soft-yellow);
   border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
 }
 .slide .links a:hover {
-  background-color: rgba(0,0,0,0.7);
-  box-shadow: 0 0 8px var(--meteor-orange);
+  background-color: rgba(10,25,47,0.7);
+  box-shadow: 0 0 8px var(--muted-yellow);
   transform: scale(1.05);
 }
 #prev, #next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.8);
+  background: rgba(10,25,47,0.8);
   border: none;
-  color: var(--starlight-white);
+  color: var(--soft-yellow);
   font-size: 2rem;
   padding: 12px;
   cursor: pointer;
@@ -261,7 +259,7 @@ section h2 {
   max-height: 300px;
   border-radius: 8px;
   object-fit: cover;
-  filter: drop-shadow(0 0 10px var(--meteor-orange));
+  filter: drop-shadow(0 0 10px var(--muted-yellow));
   margin-bottom: 20px;
 }
 #capstone-content .capstone-details {
@@ -271,7 +269,7 @@ section h2 {
 }
 #capstone-content .capstone-details p {
   margin-bottom: 15px;
-  color: var(--starlight-white);
+  color: var(--soft-yellow);
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
 }
@@ -279,8 +277,8 @@ section h2 {
   display: inline-block;
   margin-top: 20px;
   text-decoration: none;
-  color: var(--starlight-white);
-  background-color: var(--cosmic-purple);
+  color: var(--soft-yellow);
+  background-color: var(--muted-yellow);
   padding: 10px 20px;
   border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -288,7 +286,7 @@ section h2 {
   font-size: 14px;
 }
 #capstone-content .capstone-back a:hover {
-  background-color: var(--meteor-orange);
+  background-color: var(--soft-yellow);
   transform: scale(1.05);
 }
 
@@ -306,9 +304,9 @@ section h2 {
   display: inline-block;
   margin: 5px;
   padding: 10px 16px;
-  background: rgba(0,0,0,0.6);
-  color: var(--starlight-white);
-  border: 1px solid var(--cosmic-purple);
+  background: rgba(10,25,47,0.6);
+  color: var(--soft-yellow);
+  border: 1px solid var(--muted-yellow);
   cursor: pointer;
   border-radius: 30px;
   transition: background 0.3s ease, box-shadow 0.3s ease;
@@ -317,8 +315,8 @@ section h2 {
 }
 .filter-btn:hover,
 .filter-btn.active {
-  background: rgba(0,0,0,0.8);
-  box-shadow: 0 0 10px var(--nebula-blue);
+  background: rgba(10,25,47,0.8);
+  box-shadow: 0 0 10px var(--muted-yellow);
 }
 #projects-tiles {
   display: flex;
@@ -327,13 +325,13 @@ section h2 {
   justify-content: center;
 }
 .project-tile {
-  background: rgba(0,0,0,0.7);
+  background: rgba(10,25,47,0.7);
   backdrop-filter: blur(8px);
-  border: 1px solid var(--cosmic-purple);
+  border: 1px solid var(--muted-yellow);
   padding: 20px;
   width: 300px;
   border-radius: 8px;
-  box-shadow: 0 0 20px var(--nebula-blue);
+  box-shadow: 0 0 20px var(--muted-yellow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -341,7 +339,7 @@ section h2 {
 }
 .project-tile:hover {
   transform: scale(1.03) translateY(-4px) rotateX(1deg);
-  box-shadow: 0 0 30px var(--meteor-orange);
+  box-shadow: 0 0 30px var(--muted-yellow);
 }
 .project-tile .tile-image-container {
   width: 100%;
@@ -360,14 +358,14 @@ section h2 {
 .project-tile h3 {
   font-family: 'Orbitron', sans-serif;
   font-size: 24px;
-  color: var(--meteor-orange);
+  color: var(--muted-yellow);
   margin-bottom: 10px;
-  text-shadow: 0 0 8px var(--meteor-orange);
+  text-shadow: 0 0 8px var(--muted-yellow);
   letter-spacing: 1px;
 }
 .project-tile p {
   margin-bottom: 10px;
-  color: var(--nebula-blue);
+  color: var(--soft-yellow);
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
 }
@@ -375,9 +373,9 @@ section h2 {
   display: inline-block;
   margin: 0 5px 5px 0;
   text-decoration: none;
-  color: var(--starlight-white);
-  background-color: rgba(0,0,0,0.7);
-  border: 1px solid var(--nebula-blue);
+  color: var(--soft-yellow);
+  background-color: rgba(10,25,47,0.7);
+  border: 1px solid var(--soft-yellow);
   padding: 8px 15px;
   border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
@@ -385,8 +383,8 @@ section h2 {
   font-size: 14px;
 }
 .project-tile .links a:hover {
-  background-color: rgba(0,0,0,0.7);
-  box-shadow: 0 0 8px var(--meteor-orange);
+  background-color: rgba(10,25,47,0.7);
+  box-shadow: 0 0 8px var(--muted-yellow);
   transform: scale(1.05);
 }
 
@@ -394,10 +392,10 @@ section h2 {
 footer {
   text-align: center;
   padding: 20px;
-  border-top: 1px solid var(--cosmic-purple);
+  border-top: 1px solid var(--muted-yellow);
   margin-top: 40px;
   font-size: 0.9rem;
-  color: var(--starlight-white);
+  color: var(--soft-yellow);
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -406,7 +404,7 @@ footer {
   position: absolute;
   width: 4px;
   height: 4px;
-  background: var(--starlight-white);
+  background: var(--soft-yellow);
   border-radius: 50%;
   pointer-events: none;
   opacity: 0.8;
