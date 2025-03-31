@@ -125,9 +125,44 @@ nav a.active {
   border-bottom: 2px solid var(--accent-star);
 }
 
-/* Hide hamburger button by default */
+/* Global Hamburger Button visible on all screens */
 .hamburger {
-  display: none;
+  display: block;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: transparent;
+  border: 2px solid var(--accent-star);
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: var(--accent-star);
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 4;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.hamburger:hover {
+  background: var(--accent-star);
+  color: var(--deep-space);
+}
+
+/* Side Sliding Menu for Navigation */
+header nav ul {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: rgba(0,8,20,0.9);
+  padding-top: 60px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  flex-direction: column;
+  z-index: 3;
+}
+/* When open, slide in */
+header nav ul.open {
+  transform: translateX(0);
 }
 
 /* Responsive Header for Hamburger Menu */
@@ -135,23 +170,6 @@ nav a.active {
   header {
     flex-wrap: wrap;
     justify-content: space-between;
-  }
-  /* Show the hamburger button only on narrow screens with styling */
-  .hamburger {
-    display: block;
-    background: transparent;
-    border: 2px solid var(--accent-star);
-    border-radius: 4px;
-    padding: 4px 8px;
-    color: var(--accent-star);
-    font-size: 2rem;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-  .hamburger:hover {
-    background: var(--accent-star);
-    color: var(--deep-space);
   }
   /* Hide the nav list by default */
   header nav ul {
