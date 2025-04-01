@@ -24,7 +24,7 @@
         "repo": "https://github.com/Orion-North/Algoduel",
         "demo": "https://orion-north.github.io/Algoduel/"
       },
-      "description": "Algoduel is a strategic game where you craft an algorithm to control your fighter as they battle against AI opponents. It merges coding challenges with engaging gameplay for a unique competitive experience.",
+      "description": "Algoduel is a strategic game where you craft an algorithm to control your fighter as they battle against AI opponents, created for Hack Club's High Seas event. It merges coding challenges with engaging gameplay for a unique competitive experience.",
       "main": true
     },
     {
@@ -37,7 +37,7 @@
         "repo": "https://github.com/Orion-North/Capsule",
         "demo": "https://orion-north.github.io/Capsule/"
       },
-      "description": "Capsule is a minimalist personal blog template designed for developers. It offers a clean interface, easy customization, and supports markdown for content creation.",
+      "description": "Capsule is a time travel themed jouraling application, created for Hack Club's High Seas event. You schedule messages to be sent to your future self. It features a sleek design and a user-friendly interface, making it easy to use.",
       "main": false
     },
     {
@@ -49,7 +49,7 @@
       "links": {
         "repo": "https://github.com/Orion-North/Bloondubs"
       },
-      "description": "Bloondubs is a dynamic web application that allows users to create and share short video clips with added sound effects and filters. Built with React and Redux, it delivers a rich interactive experience.",
+      "description": "Bloondubs is a web-based game, created for Hack Club's High Seas event. The player navigates a map to collect items and avoid enemies. Built with React and Redux, it features a dynamic map and engaging gameplay mechanics.",
       "main": false
     },
     {
@@ -61,7 +61,7 @@
       "links": {
         "repo": "https://github.com/Orion-North/Pirate-Personality"
       },
-      "description": "Pirate-Personality is a fun quiz app that determines which pirate from history you most resemble. Built with Vue.js, it offers interactive questions and dynamic results.",
+      "description": "Pirate-Personality is a fun quiz app, created for Hack Club's High Seas event. The app determines which position you would have in a pirate crew. Built with Vue.js, it offers interactive questions and dynamic results.",
       "main": false
     },
     {
@@ -74,7 +74,7 @@
         "repo": "https://github.com/Orion-North/Rollbone",
         "demo": "https://orion-north.github.io/Rollbone/"
       },
-      "description": "Rollbone is an online platform for tabletop RPG enthusiasts. It provides tools for character creation, campaign management, and virtual dice rolling within a collaborative environment.",
+      "description": "Rollbone is a web-based dice roller, created for Hack Club's High Seas event. It allows users to select their odds and roll dice to gain gold, with a firebase powered scoreboard.",
       "main": false
     }
   ]
