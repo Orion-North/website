@@ -36,32 +36,89 @@ body {
   position: relative;
   overflow-x: hidden;
   padding-top: 100px; /* Added to offset the fixed header height */
+  perspective: 1px; /* For parallax effect */
 }
 
-/* Starfield: More prominent scattered stars */
-body::before {
-  content: "";
+/* Multiple Starfield Layers with Parallax Effect */
+.stars-container {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: 
-    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
-    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
-    radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 1px);
-  background-size: 
-    550px 550px,
-    350px 350px,
-    200px 200px;
-  background-position: 
-    0 0,
-    40px 60px,
-    130px 270px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
   z-index: -2;
-  animation: twinkleStars 15s linear infinite alternate;
+  overflow: hidden;
 }
 
-@keyframes twinkleStars {
-  0%, 100% { opacity: 0.8; }
+.stars-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Closest stars - largest and fastest */
+.stars-layer-1 {
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.3) 2px, transparent 3px);
+  background-size: 650px 650px;
+  background-position: 0 0;
+  animation: twinkleStars-1 8s linear infinite alternate;
+  transform: translateZ(-1px) scale(2);
+}
+
+/* Medium distance stars */
+.stars-layer-2 {
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 1px, transparent 2px);
+  background-size: 400px 400px;
+  background-position: 30px 50px;
+  animation: twinkleStars-2 12s linear infinite alternate;
+  transform: translateZ(-2px) scale(3);
+}
+
+/* Distant stars - smallest and slowest */
+.stars-layer-3 {
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.1) 0.5px, transparent 1px);
+  background-size: 300px 300px;
+  background-position: 100px 150px;
+  animation: twinkleStars-3 15s linear infinite alternate;
+  transform: translateZ(-3px) scale(4);
+}
+
+/* Extra tiny background stars */
+.stars-layer-4 {
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.05) 0.3px, transparent 0.8px);
+  background-size: 200px 200px;
+  background-position: 70px 110px;
+  animation: twinkleStars-4 20s linear infinite alternate;
+  transform: translateZ(-4px) scale(5);
+}
+
+@keyframes twinkleStars-1 {
+  0%, 100% { opacity: 0.9; }
   50% { opacity: 1; }
+}
+
+@keyframes twinkleStars-2 {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes twinkleStars-3 {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes twinkleStars-4 {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.6; }
 }
 
 /* Constellation Grid: Faint lines connecting stars */
@@ -491,20 +548,4 @@ footer {
   font-size: 0.9rem;
   color: var(--text-color);
   font-family: 'Montserrat', sans-serif;
-}
-
-/* Cursor-Following Stardust Effect */
-.cursor-particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: var(--accent-star);
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0.8;
-  animation: fadeParticle 0.8s ease-out forwards;
-}
-@keyframes fadeParticle {
-  from { transform: scale(1); opacity: 0.8; }
-  to { transform: scale(3); opacity: 0; }
 }
