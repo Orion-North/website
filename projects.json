@@ -21,8 +21,6 @@
       "tech": ["Fusion 360", "Soldering", "Electrical", "Mechanical Engineering", "Outreach & Marketing"],
       "date": "2025",
       "links": {
-        "repo": "https://github.com/Templeton-Robotics", 
-        "team": "https://www.thebluealliance.com/team/7190"
       },
       "description": "As a core builder and leader for Team 7190, I led development on critical components including main robot design, wiring/electrical, driving, a two stage elevator, and creating motor driven systems. Contributed to mechanical prototyping, drivetrain optimization, and overall project management. I also played a key role in outreach and marketing efforts, enhancing the team's visibility and community engagement.",
       "main": true
