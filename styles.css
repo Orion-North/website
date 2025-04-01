@@ -27,10 +27,10 @@ p {
   --accent-shadow: rgba(255,255,255,0.3);
 }
 
-/* Body: Cosmic Background with a Subtle Starfield and Constellation Grid */
+/* Body: Cosmic Background with Stars */
 body {
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, var(--deep-space), var(--nebula-blue));
+  background-color: #000410; /* Darker background for better star visibility */
   color: var(--text-color);
   line-height: 1.6;
   position: relative;
@@ -38,44 +38,44 @@ body {
   padding-top: 100px; /* Added to offset the fixed header height */
 }
 
-/* Starfield: Delicate, scattered stardust */
+/* Starfield: More prominent scattered stars */
 body::before {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: repeating-radial-gradient(circle, 
-              rgba(255,255,255,0.1) 0px, 
-              rgba(255,255,255,0.1) 1px, 
-              transparent 1px, 
-              transparent 3px);
-  background-size: 3px 3px;
-  opacity: 0.2;
-  animation: driftStars 40s linear infinite;
-  pointer-events: none;
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+    radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 1px);
+  background-size: 
+    550px 550px,
+    350px 350px,
+    200px 200px;
+  background-position: 
+    0 0,
+    40px 60px,
+    130px 270px;
   z-index: -2;
-}
-@keyframes driftStars {
-  from { transform: translate(0, 0); }
-  to { transform: translate(-120px, -120px); }
+  animation: twinkleStars 15s linear infinite alternate;
 }
 
-/* Constellation Grid: Faint lines like cosmic trails */
+@keyframes twinkleStars {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Constellation Grid: Faint lines connecting stars */
 body::after {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: 
-    linear-gradient(90deg, transparent, transparent 97%, rgba(255,255,255,0.05) 97%, rgba(255,255,255,0.05) 100%),
-    linear-gradient(0deg, transparent, transparent 97%, rgba(255,255,255,0.05) 97%, rgba(255,255,255,0.05) 100%);
-  background-size: 60px 60px;
-  opacity: 0.2;
-  animation: pulseGrid 20s ease-in-out infinite;
+    linear-gradient(90deg, transparent 97%, rgba(255,255,255,0.03) 97%, rgba(255,255,255,0.03) 100%),
+    linear-gradient(0deg, transparent 97%, rgba(255,255,255,0.03) 97%, rgba(255,255,255,0.03) 100%);
+  background-size: 100px 100px;
+  opacity: 0.4;
   pointer-events: none;
   z-index: -1;
-}
-@keyframes pulseGrid {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.25; }
 }
 
 /* Carousel Wrapper */
