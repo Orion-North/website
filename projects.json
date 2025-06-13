@@ -3,9 +3,9 @@
     {
       "id": 1,
       "title": "Aegis",
-      "image": "assets/aegis.png",
+      "image": "assets/aegis.jpg",
       "tech": ["Python", "YOLO", "OpenCV"],
-      "date": "Estimated: June 2025",
+      "date": "12-6-2025",
       "links": {
         "repo": "https://github.com/Orion-North/Aegis"
       },
