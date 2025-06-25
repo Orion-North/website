@@ -20,17 +20,19 @@ p {
 
 /* Deep Space Color Palette */
 :root {
-  --deep-space: #000814;         /* Midnight blue, deeper than ever */
-  --nebula-blue: #001b33;         /* Slightly lighter dark blue */
-  --accent-star: #ffffff;         /* Star-like white accents */
-  --text-color: #f0f0f0;          /* Soft, subtle text */
-  --accent-shadow: rgba(255,255,255,0.3);
+  --deep-space: #000814;         /* Midnight blue */
+  --nebula-blue: #001b33;        /* Slightly lighter dark blue */
+  --accent-star: #00ffff;        /* Neon cyan accents */
+  --text-color: #f0f0f0;         /* Soft, subtle text */
+  --accent-shadow: rgba(0,255,255,0.4);
+  --neon-pink: #ff0080;
+  --neon-purple: #a100ff;
 }
 
 /* Body: Cosmic Background with Stars */
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #000410; /* Darker background for better star visibility */
+  background: linear-gradient(180deg, #000410 0%, #110020 100%);
   color: var(--text-color);
   line-height: 1.6;
   position: relative;
@@ -65,6 +67,15 @@ body::before {
 @keyframes twinkle {
   0%, 100% { opacity: 0.7; }
   50% { opacity: 1; }
+}
+
+@keyframes neon-glow {
+  0%, 100% {
+    text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink), 0 0 20px var(--accent-star);
+  }
+  50% {
+    text-shadow: 0 0 10px var(--accent-star), 0 0 20px var(--neon-pink), 0 0 30px var(--accent-star);
+  }
 }
 
 /* Add a layer that will handle the twinkling animation */
@@ -121,10 +132,10 @@ header {
   z-index: 10;
 }
 header h1 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Share Tech Mono', 'Orbitron', sans-serif;
   font-size: 48px;
-  color: var(--accent-star);
-  text-shadow: 0 0 4px var(--accent-star), 0 0 8px var(--accent-star);
+  color: var(--neon-pink);
+  animation: neon-glow 3s ease-in-out infinite alternate;
   letter-spacing: 2px;
 }
 
@@ -157,7 +168,8 @@ nav a {
 nav a:hover,
 nav a.active {
   color: var(--accent-star);
-  border-bottom: 2px solid var(--accent-star);
+  border-bottom: 2px solid var(--neon-pink);
+  text-shadow: 0 0 6px var(--neon-pink);
 }
 
 /* Global Hamburger Button now hidden on larger screens */
@@ -197,6 +209,7 @@ nav a.active {
 
   header h1 {
     font-size: 36px; /* Slightly smaller on mobile */
+    font-family: 'Share Tech Mono', 'Orbitron', sans-serif;
   }
 
   header nav ul {
